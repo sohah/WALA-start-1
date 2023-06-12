@@ -81,8 +81,8 @@ public class PdfCFG {
   public static Process draw(ClassHierarchy cha, IR ir, SSACFG cfg) throws IOException {
     try {
 
-      String dotFile = File.createTempFile("cfg", ".dt").getAbsolutePath();
-      String pdfFile = File.createTempFile("cfg", ".pdf").getAbsolutePath();
+//      String dotFile = File.createTempFile("cfg", ".dt").getAbsolutePath();
+//      String pdfFile = File.createTempFile("cfg", ".pdf").getAbsolutePath();
       String dotFile1 = new File("/media/soha/01D8C30C020FE690/git/WALA-start-1/cfg.dt").getAbsolutePath();
       String pdfFile1 = new File("/media/soha/01D8C30C020FE690/git/WALA-start-1/cfg.pdf").getAbsolutePath();
       String dotExe = "dot";
@@ -90,7 +90,7 @@ public class PdfCFG {
       DotUtil.dotify(cfg, null, dotFile1, pdfFile1, dotExe);
 //      return PDFViewUtil.launchPDFView(pdfFile1, gvExe);
 
-      return PDFViewUtil.ghostviewIR(cha, ir,  pdfFile, dotFile, dotExe, gvExe);
+      return PDFViewUtil.ghostviewIR(cha, ir,  pdfFile1, dotFile1, dotExe, gvExe);
 
 
     } catch (WalaException e) {
