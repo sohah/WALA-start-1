@@ -33,16 +33,16 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- * 
- * This simple example WALA application builds a TypeHierarchy and fires off
- * ghostview to viz a DOT representation.
- * 
+ * This simple example WALA application builds a TypeHierarchy and fires off ghostview to viz a DOT
+ * representation.
+ *
  * @author sfink
  */
 public class PdfCFG {
+
   // This example takes one command-line argument, so args[1] should be the "-classpath" parameter
   final static int CLASSPATH_INDEX = 1;
-  final static int METHOD_SIGNATURE_INDEX=2;
+  final static int METHOD_SIGNATURE_INDEX = 2;
 
 
   public static void main(String[] args) throws IOException, ClassHierarchyException {
@@ -61,9 +61,10 @@ public class PdfCFG {
           "specify both an entryClass and an entryMethod for the analysis");
     }
     File exclusionFile = new File(PdfCFG.class.getResource("/WalaExclusions.txt").getFile());
-    String classpathResource = PdfCFG.class.getResource("/aws-serverless-lambda-1.0-SNAPSHOT.jar").getFile().toString();
-    AnalysisScope scope = AnalysisScopeReader.instance.makeJavaBinaryAnalysisScope(classpathResource,
-                                                                                   exclusionFile);
+    String classpathResource = PdfCFG.class.getResource("/" + classpath).getFile().toString();
+    AnalysisScope scope = AnalysisScopeReader.instance.makeJavaBinaryAnalysisScope(
+        classpathResource,
+        exclusionFile);
 //    addDefaultExclusions(scope);
     ClassHierarchy cha = ClassHierarchyFactory.make(scope);
     AnalysisOptions options = new AnalysisOptions();
@@ -77,20 +78,21 @@ public class PdfCFG {
   }
 
 
-
   public static Process draw(ClassHierarchy cha, IR ir, SSACFG cfg) throws IOException {
     try {
 
 //      String dotFile = File.createTempFile("cfg", ".dt").getAbsolutePath();
 //      String pdfFile = File.createTempFile("cfg", ".pdf").getAbsolutePath();
-      String dotFile1 = new File("/media/soha/01D8C30C020FE690/git/WALA-start-1/cfg.dt").getAbsolutePath();
-      String pdfFile1 = new File("/media/soha/01D8C30C020FE690/git/WALA-start-1/cfg.pdf").getAbsolutePath();
+      String dotFile1 = new File(
+          "/media/soha/01D8C30C020FE690/git/WALA-start-1/cfg.dt").getAbsolutePath();
+      String pdfFile1 = new File(
+          "/media/soha/01D8C30C020FE690/git/WALA-start-1/cfg.pdf").getAbsolutePath();
       String dotExe = "dot";
       String gvExe = "open";
       DotUtil.dotify(cfg, null, dotFile1, pdfFile1, dotExe);
 //      return PDFViewUtil.launchPDFView(pdfFile1, gvExe);
 
-      return PDFViewUtil.ghostviewIR(cha, ir,  pdfFile1, dotFile1, dotExe, gvExe);
+      return PDFViewUtil.ghostviewIR(cha, ir, pdfFile1, dotFile1, dotExe, gvExe);
 
 
     } catch (WalaException e) {
@@ -100,12 +102,12 @@ public class PdfCFG {
     }
   }
 
-  
+
   /**
    * Validate that the command-line arguments obey the expected usage.
-   * 
+   * <p>
    * Usage: args[0] : "-classpath" args[1] : String, a ";"-delimited class path
-   * 
+   *
    * @throws UnsupportedOperationException if command-line is malformed.
    */
   public static void validateCommandLine(String[] args) {
@@ -113,7 +115,8 @@ public class PdfCFG {
       throw new UnsupportedOperationException("must have at least 2 command-line arguments");
     }
     if (!args[0].equals("-classpath")) {
-      throw new UnsupportedOperationException("invalid command-line, args[0] should be -classpath, but is " + args[0]);
+      throw new UnsupportedOperationException(
+          "invalid command-line, args[0] should be -classpath, but is " + args[0]);
     }
   }
 }
