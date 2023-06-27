@@ -1,0 +1,21 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PDF_S3UploadSurveyToDynamoDB" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="com.ibm.wala.examples.drivers.PdfCFG" />
+    <module name="WALA-start-1.main" />
+    <option name="PROGRAM_PARAMETERS" value="-entryClass=nfbbreastfeedings3lambda.LambdaFunctionHandler -entryMethod=handleRequest(Lcom/amazonaws/services/lambda/runtime/events/S3Event;Lcom/amazonaws/services/lambda/runtime/Context;)Ljava/lang/String; -classpath=demo-1.0.0.jar" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.ibm.wala.examples.drivers.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+      <option name="credential" />
+      <option name="region" />
+      <option name="useCurrentConnection" value="false" />
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
