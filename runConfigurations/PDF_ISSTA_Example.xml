@@ -1,0 +1,21 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PDF_ISSTA_Example" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.ibm.wala.examples.drivers.PdfCFG" />
+    <module name="WALA-start-1.main" />
+    <option name="PROGRAM_PARAMETERS" value="-entryClass=org.example.YearThumbnails -entryMethod=main([Ljava/lang/String;)V -classpath=ISSTA2024-1.0-SNAPSHOT.jar" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.ibm.wala.examples.drivers.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+      <option name="credential" />
+      <option name="region" />
+      <option name="useCurrentConnection" value="false" />
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
