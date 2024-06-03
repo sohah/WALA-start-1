@@ -83,10 +83,11 @@ public class PdfCFG {
 
 //      String dotFile = File.createTempFile("cfg", ".dt").getAbsolutePath();
 //      String pdfFile = File.createTempFile("cfg", ".pdf").getAbsolutePath();
+      String projectDir = System.getProperty("user.dir");
       String dotFile1 = new File(
-          "/media/soha/01D8C30C020FE690/git/WALA-start-1/cfg.dt").getAbsolutePath();
+          projectDir + "/cfg.dt").getAbsolutePath();
       String pdfFile1 = new File(
-          "/media/soha/01D8C30C020FE690/git/WALA-start-1/cfg.pdf").getAbsolutePath();
+          projectDir + "/cfg.pdf").getAbsolutePath();
       String dotExe = "dot";
       String gvExe = "open";
       DotUtil.dotify(cfg, null, dotFile1, pdfFile1, dotExe);
